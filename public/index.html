@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Router Panel</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>Mini Router</h1>
+  <div class="meta">
+    <span id="dev">memuat…</span>
+    <span id="rootBadge" class="badge">cek root…</span>
+  </div>
+</header>
+
+<main>
+  <section class="card" id="statusCard">
+    <h2>Status Sistem</h2>
+    <div class="grid" id="statusGrid">memuat…</div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Client Terhubung</h2>
+      <button id="refreshClients" class="ghost">Muat ulang</button>
+    </div>
+    <div id="clientsMsg" class="hint"></div>
+    <table id="clientsTable" hidden>
+      <thead><tr><th>IP</th><th>MAC</th><th>Nama</th><th>Aksi</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Adblock / DNS Filter</h2>
+    <form id="dnsForm" class="row">
+      <input id="dnsDomain" placeholder="contoh: ads.example.com" autocomplete="off">
+      <button type="submit">Blokir</button>
+    </form>
+    <div id="dnsList" class="chips"></div>
+  </section>
+
+  <section class="card">
+    <h2>Port Forwarding</h2>
+    <form id="pfForm" class="row">
+      <input id="pfPort" type="number" placeholder="port publik" min="1" max="65535">
+      <input id="pfIp" placeholder="IP client" autocomplete="off">
+      <input id="pfDport" type="number" placeholder="port lokal (opsional)" min="1" max="65535">
+      <button type="submit">Tambah</button>
+    </form>
+    <div id="pfList" class="chips"></div>
+  </section>
+
+  <section class="card">
+    <h2>Trafik Interface</h2>
+    <div id="trafficMsg" class="hint"></div>
+    <table id="trafficTable" hidden>
+      <thead><tr><th>Interface</th><th>RX</th><th>TX</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Token Panel</h2>
+    <form id="tokenForm" class="row">
+      <input id="tokenInput" placeholder="token akses" autocomplete="off">
+      <button type="submit">Simpan</button>
+    </form>
+    <div class="hint">Token tersimpan di browser ini. Kosongkan jika panel tanpa auth.</div>
+  </section>
+</main>
+
+<footer>mini-router v0.1.0 · berjalan di Termux + Magisk</footer>
+<script src="/app.js"></script>
+</body>
+</html>
